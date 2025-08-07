@@ -7,6 +7,56 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode nav,
+body.dark-mode footer {
+  background-color: #000000;
+}
+
+body.dark-mode a,
+body.dark-mode h1,
+body.dark-mode h2 {
+  color: #74C0FC;
+}
+
+body.dark-mode p {
+  color: #5d5b5b;
+}
+
+
+body.dark-mode h3 {
+  color: #a7a8aa;
+}
+
+body.dark-mode .btn {
+  border-color: #74C0FC;
+  color: #74C0FC;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #74C0FC;
+  color: #000;
+}
+
+body.dark-mode .details-container {
+  background-color: #000000;
+  border-color: #74C0FC;
+}
+
+#mode-icon.fa-moon {
+  color: #74c0fc;
+}
+
+#mode-icon.fa-sun {
+  color: #000000;
 }
 
 html {
@@ -54,6 +104,15 @@ a:hover {
   text-decoration: underline;
   text-underline-offset: 1rem;
   text-decoration-color: rgb(185, 185, 185);
+}
+
+body.dark-mode a:hover {
+  color: #0c68ad; 
+  text-decoration-color: #74C0FC;
+}
+
+body.dark-mode .logo {
+  color: #74C0FC;
 }
 
 .logo {
@@ -428,3 +487,5 @@ footer {
 footer p {
   text-align: center;
 }
+
+
