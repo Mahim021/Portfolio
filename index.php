@@ -39,23 +39,6 @@ $result = $conn->query($sql);
     </div>
   </nav>
 
-  <nav id="hamburger-nav">
-    <div class="logo">MD. Ariful Alam Mahim</div>
-    <div class="hamburger-menu">
-      <div class="hamburger-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="menu-links">
-        <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#Experience" onclick="toggleMenu()">Experience</a></li>
-        <li><a href="#Projects" onclick="toggleMenu()">Projects</a></li>
-        <li><a href="#Contacts" onclick="toggleMenu()">Contacts</a></li>
-      </div>
-    </div>
-  </nav>
-
   <section id="profile">
     <div class="section__pic-container">
       <img
@@ -68,11 +51,14 @@ $result = $conn->query($sql);
       <h1 class="title">Mahim</h1>
       <p class="section__text__p2">Frontend Developer</p>
       <div class="btn-container">
-        <button
+        <!-- <button
           class="btn btn-color-2"
           onclick="window.open('./Assets/Resume.pdf')">
           Download CV
-        </button>
+        </button> -->
+        <a href="./Assets/Resume.pdf" download="Resume.pdf" class="btn btn-color-2">
+          Download CV
+        </a>
         <button class="btn btn-color-1" onclick="location.href='./#contact'">
           Contact Info
         </button>
@@ -97,34 +83,42 @@ $result = $conn->query($sql);
   <section id="about">
     <p class="section__text__p1">Get to know more</p>
     <h1 class="title">About Me</h1>
+
     <div class="section-container">
       <div class="section__pic-container">
-        <img
-          src="Assets/about-pic.png"
-          alt="Profile picture"
-          class="about-pic" />
+        <img src="Assets/about-pic.png" alt="Profile picture" class="about-pic" />
       </div>
+
       <div class="about-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <img
-              src="Assets/experience.png"
-              alt="Experience Icon"
-              class="icon" />
-            <h3>Experience</h3>
-            <p>2+ Years <br />Frontend Development</p>
+        <div class="about-containers" style="display: flex; gap: 1rem;">
+          <div class="details-container personal-info">
+            <h3>Personal Info</h3>
+            <p>
+              Location: Bangladesh <br />
+              Email: mahim@example.com <br />
+              Phone: +880 1234 567890 <br />
+              LinkedIn: linkedin.com/in/mahim <br />
+              GitHub: github.com/mahim
+            </p>
           </div>
 
-          <dev class="details-container">
-            <img
-              src="Assets/education.png"
-              alt="Education Icon"
-              class="icon" />
-            <h3>Education</h3>
-            <p>B.Sc Bachelors Degree <br />M.Sc Masters Degree</p>
-          </dev>
-        </div>
+          <div class="right-boxes" style="display: flex; flex-direction: column; gap: 1rem; flex: 1;">
+            <div class="details-container">
+              <h3>Interests</h3>
+              <p>
+                Football, Guitar, Coding, Adventure
+              </p>
+            </div>
 
+            <div class="details-container">
+              <h3>Hobbies</h3>
+              <p>
+                Playing games, Reading books, Exploring new tech
+              </p>
+            </div>
+          </div>
+        </div>
+        
         <div class="text-container">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
@@ -138,18 +132,13 @@ $result = $conn->query($sql);
       </div>
     </div>
 
-    <img
-      src="Assets/arrow.png"
-      alt="Arror icon"
-      class="icon arrow"
-      onclick="location.href='./#experience'" />
+    <img src="Assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
   </section>
 
   <section id="experience">
     <p class="section__text__p1">Explore My</p>
     <h1 class="title">Experience</h1>
 
-    <!-- Skills Section -->
     <div class="skills-container">
       <div class="skill-category">
         <h2>Frontend</h2>
@@ -177,6 +166,8 @@ $result = $conn->query($sql);
         </ul>
       </div>
     </div>
+
+    <img src="Assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
   </section>
 
   <section id="projects">
@@ -260,16 +251,6 @@ $result = $conn->query($sql);
   </section>
 
   <footer>
-    <nav>
-      <div class="nav-link-container">
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contacts">Contacts</a></li>
-        </ul>
-      </div>
-    </nav>
     <p>Copyright &#169; 2025 Md. Ariful Alam. All Rights Reserved.</p>
   </footer>
   <script src="script.js"></script>
