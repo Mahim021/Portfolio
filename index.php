@@ -118,7 +118,7 @@ $result = $conn->query($sql);
             </div>
           </div>
         </div>
-        
+
         <div class="text-container">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
@@ -131,8 +131,6 @@ $result = $conn->query($sql);
         </div>
       </div>
     </div>
-
-    <img src="Assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
   </section>
 
   <section id="experience">
@@ -166,8 +164,6 @@ $result = $conn->query($sql);
         </ul>
       </div>
     </div>
-
-    <img src="Assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
   </section>
 
   <section id="projects">
@@ -208,7 +204,7 @@ $result = $conn->query($sql);
             echo "  <h2 class='experience-sub-title project-title'>{$row['project_title']}</h2>";
             echo "  <div class='button-container'>";
             echo "      <button class='btn btn-color-2 project-btn' onclick=\"location.href='{$row['link1']}'\">Github</button>";
-            echo "      <button class='btn btn-color-2 project-btn' onclick=\"location.href='{$row['link2']}'\">Github</button>";
+            echo "      <button class='btn btn-color-2 project-btn' onclick=\"location.href='{$row['link2']}'\">LinkedIn</button>";
             echo "  </div>";
             echo "</div>";
           }
@@ -219,11 +215,6 @@ $result = $conn->query($sql);
 
       </div>
     </div>
-    <img
-      src="Assets/arrow.png"
-      alt="Arror icon"
-      class="icon arrow"
-      onclick="location.href='./#contact'" />
   </section>
 
   <section id="contact">
