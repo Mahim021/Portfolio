@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 
 <body>
   <nav id="desktop-nav">
-    <div class="logo">MD. Ariful Alam Mahim</div>
+    <div class="logo" id="my-name">MD. Ariful Alam Mahim</div>
 
     <div>
       <ul class="nav-links">
@@ -93,14 +93,20 @@ $result = $conn->query($sql);
         <div class="about-containers" style="display: flex; gap: 1rem;">
           <div class="details-container personal-info">
             <h3>Personal Info</h3>
-            <p>
-              Location: Bangladesh <br />
-              Email: mahim@example.com <br />
-              Phone: +880 1234 567890 <br />
-              LinkedIn: linkedin.com/in/mahim <br />
-              GitHub: github.com/mahim
-            </p>
+            <ul class="info-list">
+              <li><span class="label">Location:</span> Agargaon, Dhaka, Bangladesh</li>
+              <li><span class="label">Email:</span> arifulalam7865@example.com</li>
+              <li><span class="label">Phone:</span> +880 1746 734906</li>
+            </ul>
+
+            <h3>Education</h3>
+            <ul class="info-list">
+              <li><span class="label">SSC:</span> GPA 5.00 (2018)</li>
+              <li><span class="label">HSC:</span> GPA 5.00 (2020)</li>
+              <li><span class="label">B.Sc. in CSE:</span> KUET (2022–Present)</li>
+            </ul>
           </div>
+
 
           <div class="right-boxes" style="display: flex; flex-direction: column; gap: 1rem; flex: 1;">
             <div class="details-container">
@@ -120,13 +126,12 @@ $result = $conn->query($sql);
         </div>
 
         <div class="text-container">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            sed, modi suscipit quibusdam quod sapiente recusandae asperiores.
-            Nobis vitae impedit minima sunt quia totam facere, ad cupiditate
-            molestias debitis! Officia at sunt corporis impedit minus aliquam
-            dolor culpa et sit consequatur nesciunt omnis, dolore inventore
-            quisquam sed illo quis commodi.
+          <p class="bio">
+            I'm Mahim, a passionate Frontend Developer.
+            I love turning ideas into clean, modern, and responsive web experiences.
+            When I'm not coding, you'll find me strumming my guitar,
+            exploring new tech, or breaking legs on the football field.
+            Just focused on delivering quality results with every project.
           </p>
         </div>
       </div>
@@ -143,7 +148,6 @@ $result = $conn->query($sql);
         <ul>
           <li><i class="fa-solid fa-code"></i> HTML</li>
           <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
-          <li><i class="fa-brands fa-sass"></i> SASS</li>
           <li><i class="fa-brands fa-js"></i> JavaScript</li>
         </ul>
       </div>
@@ -194,19 +198,24 @@ $result = $conn->query($sql);
         </div> -->
 
         <?php
+        $result = getProjects($conn);
 
         if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
-            echo "<div class='details-container color-container'>";
-            echo "  <div class='article-container'>";
-            echo "      <img src='{$row['project_image']}' alt='{$row['project_title']}' class='project-img' />";
-            echo "  </div>";
-            echo "  <h2 class='experience-sub-title project-title'>{$row['project_title']}</h2>";
-            echo "  <div class='button-container'>";
-            echo "      <button class='btn btn-color-2 project-btn' onclick=\"location.href='{$row['link1']}'\">Github</button>";
-            echo "      <button class='btn btn-color-2 project-btn' onclick=\"location.href='{$row['link2']}'\">LinkedIn</button>";
-            echo "  </div>";
-            echo "</div>";
+        ?>
+            <div class='details-container color-container'>
+              <div class='article-container'>
+                <img src="<?= htmlspecialchars($row['project_image']) ?>"
+                  alt="<?= htmlspecialchars($row['project_title']) ?>"
+                  class="project-img" />
+              </div>
+              <h2 class='experience-sub-title project-title'><?= htmlspecialchars($row['project_title']) ?></h2>
+              <div class='button-container'>
+                <button class='btn btn-color-2 project-btn' onclick="location.href='<?= htmlspecialchars($row['link1']) ?>'">Github</button>
+                <button class='btn btn-color-2 project-btn' onclick="location.href='<?= htmlspecialchars($row['link2']) ?>'">LinkedIn</button>
+              </div>
+            </div>
+        <?php
           }
         } else {
           echo "<p>No projects found.</p>";
@@ -220,30 +229,28 @@ $result = $conn->query($sql);
   <section id="contact">
     <p class="section__text__p1">Get in Touch</p>
     <h1 class="title">Conatct Me</h1>
-    <div class="contact-info-upper-container">
-      <div class="contact-info-container">
-        <img
-          src="Assets/email.png"
-          alt="Email Icon"
-          class="icon contact-icon email-icon" />
-        <p>
-          <a href="mailto:arifulalam7865@gmail.com">arifulalam7865@gmail.com</a>
-        </p>
-      </div>
 
-      <div class="contact-info-container">
-        <img
-          src="Assets/linkedin.png"
-          alt="LinkedIn Icon"
-          class="icon contact-icon" />
-        <p><a href="https://www.linkedin.com">LinkedIn</a></p>
-      </div>
+    <div class="contact-info-container">
+      <img
+        src="Assets/linkedin.png"
+        alt="LinkedIn Icon"
+        class="icon contact-icon" />
+      <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+    </div>
     </div>
   </section>
 
   <footer>
     <p>Copyright &#169; 2025 Md. Ariful Alam. All Rights Reserved.</p>
   </footer>
+
+  <div id="admin-login" style="display:none;">
+    <form action="/admin-login" method="post">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
   <script src="script.js"></script>
 </body>
 

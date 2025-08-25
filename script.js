@@ -30,3 +30,19 @@ function toggleDarkMode() {
   });
 }
 toggleDarkMode();
+
+let clickCount = 0;
+const nameElement = document.getElementById("my-name");
+
+const adminPageUrl = "Admin/login.php";
+
+nameElement.addEventListener("click", () => {
+  clickCount++;
+
+  setTimeout(() => (clickCount = 0), 2000);
+
+  if (clickCount === 3) {
+    window.location.href = adminPageUrl; 
+    clickCount = 0; 
+  }
+});
