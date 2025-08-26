@@ -28,29 +28,108 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Add New Project</h1>
-    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <form method="POST">
-        <label>Project Title:</label><br>
-        <input type="text" name="title" required><br><br>
+    <div class="form-container">
+        <h1>Add New Project</h1>
+        <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
+        <form method="POST">
+            <label>Project Title:</label>
+            <input type="text" name="title" required>
 
-        <label>Image URL/Path:</label><br>
-        <input type="text" name="image" required><br><br>
+            <label>Image URL/Path:</label>
+            <input type="text" name="image" required>
 
-        <label>Github Link:</label><br>
-        <input type="url" name="link1"><br><br>
+            <label>Github Link:</label>
+            <input type="url" name="link1">
 
-        <label>LinkedIn Link:</label><br>
-        <input type="url" name="link2"><br><br>
+            <label>LinkedIn Link:</label>
+            <input type="url" name="link2">
 
-        <button type="submit">Add Project</button>
-    </form>
-    <br>
-    <a href="dashboard.php">⬅ Back to Dashboard</a>
+            <button type="submit">Add Project</button>
+        </form>
+        <a class="back-link" href="dashboard.php">⬅ Back to Dashboard</a>
+    </div>
 </body>
 
 </html>
