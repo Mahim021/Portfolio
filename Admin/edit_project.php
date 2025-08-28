@@ -13,7 +13,6 @@ if (!isset($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-// Handle update form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
     $image = $_POST['image'];
@@ -31,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Fetch current project data
 $stmt = $conn->prepare("SELECT * FROM projects WHERE id=?");
 $stmt->bind_param("i", $id);
 $stmt->execute();

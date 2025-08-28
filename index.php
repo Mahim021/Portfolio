@@ -1,6 +1,7 @@
 <?php
 include 'config.php';
 
+
 $sql = "SELECT * FROM projects";
 $result = $conn->query($sql);
 ?>
@@ -14,7 +15,6 @@ $result = $conn->query($sql);
   <title>Portfolio</title>
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mediaqueries.css" />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -51,11 +51,6 @@ $result = $conn->query($sql);
       <h1 class="title">Mahim</h1>
       <p class="section__text__p2">Frontend Developer</p>
       <div class="btn-container">
-        <!-- <button
-          class="btn btn-color-2"
-          onclick="window.open('./Assets/Resume.pdf')">
-          Download CV
-        </button> -->
         <a href="./Assets/Resume.pdf" download="Resume.pdf" class="btn btn-color-2">
           Download CV
         </a>
@@ -237,20 +232,24 @@ $result = $conn->query($sql);
         class="icon contact-icon" />
       <p><a href="https://www.linkedin.com">LinkedIn</a></p>
     </div>
-    </div>
+
+    <form action="./#contact" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <footer>
     <p>Copyright &#169; 2025 Md. Ariful Alam. All Rights Reserved.</p>
   </footer>
-
-  <div id="admin-login" style="display:none;">
-    <form action="/admin-login" method="post">
-      <input type="text" name="username" placeholder="Username" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-  </div>
   <script src="script.js"></script>
 </body>
 

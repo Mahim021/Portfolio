@@ -13,7 +13,6 @@ if (!isset($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-// First, check if the project exists
 $stmt = $conn->prepare("SELECT * FROM projects WHERE id=?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -24,7 +23,6 @@ if (!$project) {
     exit;
 }
 
-// If confirmed deletion
 if (isset($_POST['confirm'])) {
     $stmt = $conn->prepare("DELETE FROM projects WHERE id=?");
     $stmt->bind_param("i", $id);

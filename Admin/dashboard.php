@@ -6,13 +6,11 @@ if (!isset($_SESSION['admin'])) {
 }
 require "../config.php";
 
-// Handle messages
 $msg = "";
 if (isset($_GET['msg'])) {
     $msg = htmlspecialchars($_GET['msg']);
 }
 
-// Fetch all projects
 $result = getProjects($conn);
 ?>
 <!DOCTYPE html>
