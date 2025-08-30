@@ -1,4 +1,11 @@
 <?php
+// cookie for visit tracking
+if (!isset($_COOKIE['visits'])) {
+    setcookie("visits", 1, time() + (30 * 24 * 60 * 60), "/");
+} else {
+    setcookie("visits", $_COOKIE['visits'] + 1, time() + (30 * 24 * 60 * 60), "/");
+}
+
 session_start();
 require "../config.php";
 
@@ -20,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

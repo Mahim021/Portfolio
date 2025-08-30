@@ -1,6 +1,12 @@
 <?php
 include 'config.php';
 
+// cookie for visit tracking
+if (!isset($_COOKIE['visits'])) {
+  setcookie("visits", 1, time() + (30 * 24 * 60 * 60), "/");
+} else {
+  setcookie("visits", $_COOKIE['visits'] + 1, time() + (30 * 24 * 60 * 60), "/");
+}
 
 $sql = "SELECT * FROM projects";
 $result = $conn->query($sql);
@@ -42,7 +48,7 @@ $result = $conn->query($sql);
   <section id="profile">
     <div class="section__pic-container">
       <img
-        src="./Assets/profile-pic.png"
+        src="./Assets/profile-pic.jpg"
         alt="MD. Ariful Alam profile picture" />
     </div>
 
@@ -81,7 +87,7 @@ $result = $conn->query($sql);
 
     <div class="section-container">
       <div class="section__pic-container">
-        <img src="Assets/about-pic.png" alt="Profile picture" class="about-pic" />
+        <img src="Assets/about-pic.jpg" alt="Profile picture" class="about-pic" />
       </div>
 
       <div class="about-details-container">
@@ -206,8 +212,8 @@ $result = $conn->query($sql);
               </div>
               <h2 class='experience-sub-title project-title'><?= htmlspecialchars($row['project_title']) ?></h2>
               <div class='button-container'>
-                <button class='btn btn-color-2 project-btn' onclick="location.href='<?= htmlspecialchars($row['link1']) ?>'">Github</button>
-                <button class='btn btn-color-2 project-btn' onclick="location.href='<?= htmlspecialchars($row['link2']) ?>'">LinkedIn</button>
+                <button class='btn btn-color-2 project-btn' onclick="location.href='<?= htmlspecialchars($row['Github']) ?>'">Github</button>
+                <button class='btn btn-color-2 project-btn' onclick="location.href='<?= htmlspecialchars($row['LinkedIn']) ?>'">LinkedIn</button>
               </div>
             </div>
         <?php
@@ -224,14 +230,6 @@ $result = $conn->query($sql);
   <section id="contact">
     <p class="section__text__p1">Get in Touch</p>
     <h1 class="title">Conatct Me</h1>
-
-    <div class="contact-info-container">
-      <img
-        src="Assets/linkedin.png"
-        alt="LinkedIn Icon"
-        class="icon contact-icon" />
-      <p><a href="https://www.linkedin.com">LinkedIn</a></p>
-    </div>
 
     <form action="./#contact" method="POST">
       <label for="name">Name</label>

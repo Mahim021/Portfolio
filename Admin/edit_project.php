@@ -1,4 +1,11 @@
 <?php
+// cookie for visit tracking
+if (!isset($_COOKIE['visits'])) {
+    setcookie("visits", 1, time() + (30 * 24 * 60 * 60), "/");
+} else {
+    setcookie("visits", $_COOKIE['visits'] + 1, time() + (30 * 24 * 60 * 60), "/");
+}
+
 session_start();
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -59,10 +66,10 @@ if (!$project) {
         <input type="text" name="image" value="<?= htmlspecialchars($project['project_image']) ?>" required><br><br>
 
         <label>Github Link:</label><br>
-        <input type="url" name="link1" value="<?= htmlspecialchars($project['link1']) ?>"><br><br>
+        <input type="url" name="link1" value="<?= htmlspecialchars($project['Github']) ?>"><br><br>
 
         <label>LinkedIn Link:</label><br>
-        <input type="url" name="link2" value="<?= htmlspecialchars($project['link2']) ?>"><br><br>
+        <input type="url" name="link2" value="<?= htmlspecialchars($project['LinkedIn']) ?>"><br><br>
 
         <button type="submit">Update Project</button>
     </form>

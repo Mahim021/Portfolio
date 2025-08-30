@@ -42,7 +42,7 @@ nameElement.addEventListener("click", () => {
   setTimeout(() => (clickCount = 0), 2000);
 
   if (clickCount === 3) {
-    window.location.href = adminPageUrl; 
-    clickCount = 0; 
+    window.location.href = adminPageUrl;
+    clickCount = 0;
   }
 });

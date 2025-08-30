@@ -1,4 +1,11 @@
 <?php
+// cookie for visit tracking
+if (!isset($_COOKIE['visits'])) {
+    setcookie("visits", 1, time() + (30 * 24 * 60 * 60), "/");
+} else {
+    setcookie("visits", $_COOKIE['visits'] + 1, time() + (30 * 24 * 60 * 60), "/");
+}
+
 session_start();
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -13,6 +20,8 @@ if (isset($_GET['msg'])) {
 
 $result = getProjects($conn);
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,8 +134,8 @@ $result = getProjects($conn);
                     <td><?= $row['id'] ?></td>
                     <td><?= htmlspecialchars($row['project_title']) ?></td>
                     <td><img src="<?= htmlspecialchars($row['project_image']) ?>" alt="Project Image"></td>
-                    <td><a href="<?= htmlspecialchars($row['link1']) ?>" target="_blank">Github</a></td>
-                    <td><a href="<?= htmlspecialchars($row['link2']) ?>" target="_blank">LinkedIn</a></td>
+                    <td><a href="<?= htmlspecialchars($row['Github']) ?>" target="_blank">Github</a></td>
+                    <td><a href="<?= htmlspecialchars($row['LinkedIn']) ?>" target="_blank">LinkedIn</a></td>
                     <td>
                         <a class="action-link" href="edit_project.php?id=<?= $row['id'] ?>">Edit</a> |
                         <a class="action-link" href="delete_project.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure?');">Delete</a>

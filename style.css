@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+/* CSS Variables for contact section only */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --input-bg: #f8f9fa;
+  --border-color: #ddd;
+  --btn-bg: #353535;
+  --btn-text: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +18,12 @@
 body.dark-mode {
   background-color: #242323;
   color: #ffffff;
+  --bg-color: #242323;
+  --text-color: #ffffff;
+  --input-bg: #1e1e1e;
+  --border-color: #74c0fc;
+  --btn-bg: #74c0fc;
+  --btn-text: #000;
 }
 
 body {
@@ -16,7 +32,6 @@ body {
   color: #000000;
   margin: 0;
   padding-top: 80px;
-  font-family: Arial, sans-serif;
 }
 
 body.dark-mode nav,
@@ -144,11 +159,10 @@ body.dark-mode .logo {
 /* SECTIONS */
 
 section {
-  padding-top: 4vh;
-  height: 96vh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   margin: 0 10rem;
   box-sizing: border-box;
-  min-height: fit-content;
 }
 
 .section-container {
@@ -162,6 +176,7 @@ section {
   justify-content: center;
   gap: 5rem;
   height: 80vh;
+  padding-top: 2rem;
 }
 
 .section__pic-container {
